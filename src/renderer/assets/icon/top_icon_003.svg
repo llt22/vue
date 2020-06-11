@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>top_icon_003</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0.0293 0.0913 15.4673 0.0913 15.4673 12 0.0293 12"></polygon>
+    </defs>
+    <g id="前端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="镇江港通用版" transform="translate(-1356.000000, -16.000000)">
+            <g id="top_icon_003" transform="translate(1356.000000, 16.000000)">
+                <g id="分组" transform="translate(0.000000, 1.908500)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-2"></g>
+                    <path d="M13.7743,0.0913 L1.7233,0.0913 C0.7883,0.0913 0.0293,0.8493 0.0293,1.7853 L0.0293,10.3063 C0.0293,11.2413 0.7883,12.0003 1.7233,12.0003 L13.7743,12.0003 C14.7093,12.0003 15.4673,11.2413 15.4673,10.3063 L15.4673,1.7853 C15.4673,0.8493 14.7093,0.0913 13.7743,0.0913 M13.7743,1.0913 C14.1563,1.0913 14.4673,1.4033 14.4673,1.7853 L14.4673,10.3063 C14.4673,10.6893 14.1563,11.0003 13.7743,11.0003 L1.7233,11.0003 C1.3403,11.0003 1.0293,10.6893 1.0293,10.3063 L1.0293,1.7853 C1.0293,1.4033 1.3403,1.0913 1.7233,1.0913 L13.7743,1.0913" id="Fill-1" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                </g>
+                <path d="M15.2001,4.1058 L8.7311,8.8918 C8.1471,9.3228 7.3491,9.3228 6.7661,8.8918 L0.2981,4.1058" id="Stroke-3" stroke="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,47 @@
+image: docker:18.09.9-git
+
+services:
+  - docker:18.09.9-dind
+
+stages:
+  - build
+  - deploy
+
+before_script:
+  - docker info
+  - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+
+build:
+  stage: build
+  image: docker:18.09.9-git
+  only:
+    - tags
+  tags:
+    - dev3
+  services:
+    - name: docker:18.09.9-dind
+      command: ["--insecure-registry=registry.portzj.com"]
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG .
+    - echo "Built PSYS FRONT image successfully tagged as $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" \
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+
+docker:deploy:
+  stage: deploy
+  image: docker:18.09.9-git
+  only:
+    - tags
+  tags:
+    - dev3
+  services:
+    - name: docker:18.09.9-dind
+      command: ["--insecure-registry=registry.portzj.com"]
+  script:
+    - echo "Deploy psys-front - $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker rm -f psys-front || true
+    - docker rm -f psys-front-dev || true
+    - docker image pull $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+    - docker container run -d -p 9190:80 --name psys-front -v /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+    - docker container run -d -p 9191:80 --name psys-front-dev -v /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+    - docker exec psys-front-dev sed -i 's/api/api-dev/g' /usr/share/nginx/html/web.js
