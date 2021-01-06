@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "animate.css": "^3.7.2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "chinese-lunar": "^0.1.4",
     "element-ui": "^2.13.0",
     "js-md5": "^0.7.3",
